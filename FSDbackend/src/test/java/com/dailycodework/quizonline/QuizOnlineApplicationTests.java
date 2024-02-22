@@ -1,10 +1,10 @@
-package com.example.fsdbackend;
+package com.dailycodework.quizonline;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FsDbackendApplicationTests {
+class QuizOnlineApplicationTests {
 
     @Test
     void contextLoads() {
