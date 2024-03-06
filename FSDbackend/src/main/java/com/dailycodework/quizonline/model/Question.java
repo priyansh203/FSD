@@ -7,27 +7,30 @@ import lombok.Setter;
 
 import java.util.List;
 
-/**
- * @author Simpson Alfred
- */
 @Getter
 @Setter
 @Entity
 public class Question {
-    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotBlank
     private String question;
+
     @NotBlank
     private String subject;
+
     @NotBlank
     private String questionType;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "question_id")
+    private List<Choice> choices;
 
-    @ElementCollection
-    private List<String> choices;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "question_id")
+    private List<CorrectAnswer> correctAnswers;
 
-
-    @ElementCollection
-    private List<String> correctAnswers;
+    // Getters and setters
 }
