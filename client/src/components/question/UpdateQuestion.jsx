@@ -64,53 +64,52 @@ const UpdateQuestion = () => {
   }
 
   return (
-    <div className="container">
-      <h4 className="mt-5" style={{ color: "GrayText" }}>
-        Update Quiz Question
-      </h4>
-      <div className="col-8">
+    <div className="container mx-auto my-8 px-4">
+      <h4 className="mt-5 text-3xl font-semibold text-purple-700">Update Quiz Question</h4>
+      <div className="mt-8">
         <form onSubmit={handleUpdate}>
-          <div className="form-group">
-            <label className="text-info">Question:</label>
+          <div className="mb-6">
+            <label className="block text-xl text-blue-700 mb-2">Question:</label>
             <textarea
-              className="form-control"
+              className="block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
               rows={4}
               value={question}
               onChange={handleQuestionChange}
             ></textarea>
           </div>
 
-          <div className="form-group">
-            <label className="text-info">Choices:</label>
+          <div className="mb-6">
+            <label className="block text-xl text-blue-700 mb-2">Choices:</label>
             {choices.map((choice, index) => (
               <input
                 key={index}
                 type="text"
-                className="form-control mb-4"
+                className="block w-full px-4 py-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
                 value={choice.choiceValue}
                 onChange={(e) => handleChoiceChange(index, e)}
               />
             ))}
           </div>
-          <div className="form-group">
-            <label className="text-info">Correct Answer(s):</label>
+
+          <div className="mb-6">
+            <label className="block text-xl text-blue-700 mb-2">Correct Answer(s):</label>
             {correctAnswers.map((answer, index) => (
               <input
                 key={index}
                 type="text"
-                className="form-control mb-4"
+                className="block w-full px-4 py-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
                 value={answer.correctAnswerValue}
                 onChange={(e) => handleCorrectAnswerChange(index, e)}
               />
             ))}
           </div>
 
-          <div className="btn-group">
-            <button type="submit" className="btn btn-sm btn-outline-warning">
-              Update question
+          <div className="flex items-center">
+            <button type="submit" className="bg-purple-600 text-white py-3 px-6 rounded-lg mr-4 hover:bg-purple-700 focus:outline-none focus:bg-purple-700 transition duration-300">
+              Update Question
             </button>
-            <Link to={"/all-quizzes"} className="btn btn-outline-primary ml-2">
-              Back to all questions
+            <Link to={"/all-quizzes"} className="text-purple-600 hover:text-purple-700 text-xl focus:outline-none">
+              Back to All Questions
             </Link>
           </div>
         </form>
