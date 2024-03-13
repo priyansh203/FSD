@@ -9,9 +9,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.net.ContentHandler;
 import java.util.List;
 
-/**
- * @author Simpson Alfred
- */
 
 public interface QuestionRepository  extends JpaRepository<Question, Long> {
 
