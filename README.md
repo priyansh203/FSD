@@ -1,4 +1,4 @@
-# Online Quiz App
+# Quizilla: Play, Learn, Conquer!
 
 This is a web application developed using Spring Boot and React, aimed at providing users with an interactive platform to take quizzes online. The app features a user-friendly interface where users can select subjects, attempt quizzes, and view their results.
 
