@@ -116,12 +116,12 @@ const Quiz = () => {
     }
 
     return (
-        <div className="p-5">
-            <h3 className="text-info">
+        <div className="p-5 bg-gray-100 rounded-lg shadow-md">
+            <h3 className="text-lg text-blue-500 font-semibold">
                 Question {quizQuestions.length > 0 ? currentQuestionIndex + 1 : 0} of {quizQuestions.length}
             </h3>
 
-            <h4 className="mb-4">
+            <h4 className="mb-4 text-gray-800">
                 <pre>{quizQuestions[currentQuestionIndex]?.question}</pre>
             </h4>
 
@@ -132,17 +132,15 @@ const Quiz = () => {
                 handleCheckboxChange={handleCheckboxChange}
             />
 
-            <div className="mt-4">
+            <div className="mt-4 flex justify-between">
                 <button
-                    className="btn btn-sm btn-primary me-2"
+                    className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none"
                     onClick={handlePreviousQuestion}
                     disabled={currentQuestionIndex === 0}>
                     Previous question
                 </button>
                 <button
-                    className={`btn btn-sm btn-info ${
-                        currentQuestionIndex === quizQuestions.length - 1 && "btn btn-sm btn-warning"
-                    }`}
+                    className={`px-4 py-2 ${currentQuestionIndex === quizQuestions.length - 1 ? 'bg-yellow-500' : 'bg-blue-500'} text-white rounded-md hover:bg-blue-600 focus:outline-none`}
                     onClick={handleNextQuestion}
                     disabled={
                         !selectedAnswers.find(
@@ -154,6 +152,7 @@ const Quiz = () => {
                 </button>
             </div>
         </div>
+
     )
 }
 

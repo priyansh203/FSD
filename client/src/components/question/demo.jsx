@@ -94,34 +94,33 @@ const AddQuestion = () => {
 			<div className="row justify-content-center">
 				<div className="col-md-6  mt-5">
 					<div className="card">
-						<div class="card-header bg-gradient-to-r from-blue-400 to-purple-400 px-6 text-white flex justify-center items-center">
-							<h5 class="card-title text-2xl font-semibold pt-2">Add New Questions</h5>
+						<div className="card-header">
+							<h5 className="card-title">Add New Questions</h5>
 						</div>
-
-
-
 						<div className="card-body">
 							<form onSubmit={handleSubmit} className="p-2">
-								<div class="mb-6">
-									<label for="subject" class="block text-lg font-semibold text-gray-600 mb-2">Select a Subject</label>
-									<div class="relative">
-										<select id="subject" value={subject} onChange={(e) => setSubject(e.target.value)} class="block appearance-none w-full bg-purple-50 border border-purple-500 text-gray-600 py-2 px-4 pr-8 rounded-md leading-tight focus:outline-none focus:border-purple-500">
-											<option value="">Select subject</option>
-											<option value={"New"}>Add New</option>
-											{subjectOptions.map((option) => (
-												<option key={option} value={option}>{option}</option>
-											))}
-										</select>
-										<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-blue-500">
-											<svg class="fill-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" /></svg>
-										</div>
-									</div>
+								<div className="mb-3">
+									<label htmlFor="subject" className="form-label text-info">
+										Select a Subject
+									</label>
+									<select
+										id="subject"
+										value={subject}
+										onChange={(e) => setSubject(e.target.value)}
+										className="form-control">
+										<option value="">Select subject</option>
+										<option value={"New"}>Add New</option>
+										{subjectOptions.map((option) => (
+											<option key={option} value={option}>
+												{option}
+											</option>
+										))}
+									</select>
 								</div>
-
 
 								{subject === "New" && (
 									<div className="mb-3">
-										<label htmlFor="new-subject" className="text-gray-600  block text-lg font-semibold  mb-2">
+										<label htmlFor="new-subject" className="form-label text-info">
 											Add New Subject
 										</label>
 										<input
@@ -129,41 +128,41 @@ const AddQuestion = () => {
 											id="new-subject"
 											value={newSubject}
 											onChange={(event) => setNewSubject(event.target.value)}
-											className="form-control  bg-purple-50 border border-purple-00 text-gray-600 py-2 px-4 pr-8 rounded-md leading-tight focus:outline-none focus:border-purple-500"
+											className="form-control"
 										/>
 										<button
 											type="button"
 											onClick={handleAddSubject}
-											className=" mt-2 inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-400 to-purple-400 text-white rounded-md hover:bg-purple-700 mr-4 transform transition duration-300 hover:scale-105">
+											className="btn btn-outline-primary mt-2">
 											Add Subject
 										</button>
 									</div>
 								)}
-								<div className="mb-3 ">
-									<label htmlFor="question-text" className="form-label text-gray-600  block text-lg font-semibold  mb-2">
+								<div className="mb-3">
+									<label htmlFor="question-text" className="form-label text-info">
 										Question
 									</label>
 									<textarea
-										className="form-control  bg-purple-50"
+										className="form-control"
 										rows={4}
 										value={question}
 										onChange={(e) => setQuestionText(e.target.value)}></textarea>
 								</div>
 								<div className="mb-3">
-									<label htmlFor="question-type" className="form-label  text-gray-600  block text-lg font-semibold  mb-2">
+									<label htmlFor="question-type" className="form-label text-info">
 										Question type
 									</label>
 									<select
 										id="question-type"
 										value={questionType}
 										onChange={(event) => setQuestionType(event.target.value)}
-										className="form-control  bg-purple-50">
+										className="form-control">
 										<option value="single">Single Answer</option>
 										<option value="multiple">Multiple Answer</option>
 									</select>
 								</div>
 								<div className="mb-3">
-									<label htmlFor="choices" className="form-label text-gray-600  block text-lg font-semibold  mb-2">
+									<label htmlFor="choices" className="form-label text-primary">
 										Choices
 									</label>
 									{choices.map((choice, index) => (
@@ -172,12 +171,12 @@ const AddQuestion = () => {
 												type="text"
 												value={choice}
 												onChange={(e) => handleChoiceChange(index, e.target.value)}
-												className="form-control bg-purple-50 rounded"
+												className="form-control"
 											/>
 											<button
 												type="button"
 												onClick={() => handleRemoveChoice(index)}
-												className="rounded mx-3 inline-flex items-center px-4 py-2 bg-red-500 text-white hover:bg-red-600 transform transition duration-300 hover:scale-105">
+												className="btn btn-outline-danger">
 												Remove
 											</button>
 										</div>
@@ -185,18 +184,18 @@ const AddQuestion = () => {
 									<button
 										type="button"
 										onClick={handleAddChoice}
-										className="btn  mt-2 inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 font-semibold text-white rounded-md hover:bg-purple-700 mr-4 transform transition duration-300 hover:scale-105">
+										className="btn btn-outline-primary">
 										Add Choice
 									</button>
 								</div>
 								{questionType === "single" && (
 									<div className="mb-3">
-										<label htmlFor="answer" className="form-label text-success text-lg font-semibold ">
+										<label htmlFor="answer" className="form-label text-success">
 											Correct Answer
 										</label>
 										<input
 											type="text"
-											className="form-control  bg-purple-50"
+											className="form-control"
 											id="answer"
 											value={correctAnswers[0]}
 											onChange={(e) => handleCorrectAnswerChange(0, e.target.value)}
@@ -205,7 +204,7 @@ const AddQuestion = () => {
 								)}
 								{questionType === "multiple" && (
 									<div className="mb-3">
-										<label htmlFor="answer" className="form-label text-success text-lg font-semibold">
+										<label htmlFor="answer" className="form-label text-success">
 											Correct Answer(s)
 										</label>
 										{correctAnswers.map((answer, index) => (
