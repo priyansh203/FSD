@@ -7,7 +7,7 @@ const Navbar = () => {
       <div className="container mx-auto">
         <div className="flex items-center justify-between py-4">
           <NavLink className="text-2xl font-bold text-white" to={"/"}>
-            Online Quiz App
+            Quizilla: Play, Learn, Conquer!
           </NavLink>
           <button
             className="text-white focus:outline-none lg:hidden"

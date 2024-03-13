@@ -95,7 +95,7 @@ const QuizStepper = () => {
   const renderProgressBar = () => {
     const progress = currentStep === 3 ? 100 : ((currentStep - 1) / 2) * 100;
     return (
-      <div className="progress bg-gradient-to-r from-indigo-500 to-purple-600 h-10 rounded-full">
+      <div className="progress bg-gradient-to-r from-indigo-400 to-purple-400 h-10 rounded-full">
         <div
           className="progress-bar bg-indigo-600 h-full rounded-full"
           role="progressbar"
@@ -104,7 +104,7 @@ const QuizStepper = () => {
           aria-valuemin="0"
           aria-valuemax="100"
         >
-          <span className="sr-only">{`Step ${currentStep}`}</span>
+          <span className="text-[18px]">{`Step ${currentStep}`}</span>
         </div>
       </div>
     );
@@ -112,7 +112,7 @@ const QuizStepper = () => {
 
   return (
     <section className="mt-5">
-      <h3 className="text-indigo-600 mb-4">Welcome to the Online Quiz</h3>
+      <h3 className="text-indigo-600 mb-4">Welcome to the Quizilla</h3>
       {renderProgressBar()}
       <div className="bg-indigo-100 rounded-lg shadow-lg p-6">
         {renderStepContent()}

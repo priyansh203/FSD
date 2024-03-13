@@ -116,7 +116,7 @@ const Quiz = () => {
     }
 
     return (
-        <div className="p-5 bg-gray-100 rounded-lg shadow-md">
+        <div className="p-5 rounded-lg shadow-md bg-purple-100">
             <h3 className="text-lg text-blue-500 font-semibold">
                 Question {quizQuestions.length > 0 ? currentQuestionIndex + 1 : 0} of {quizQuestions.length}
             </h3>
@@ -140,7 +140,7 @@ const Quiz = () => {
                     Previous question
                 </button>
                 <button
-                    className={`px-4 py-2 ${currentQuestionIndex === quizQuestions.length - 1 ? 'bg-yellow-500' : 'bg-blue-500'} text-white rounded-md hover:bg-blue-600 focus:outline-none`}
+                    className={`px-4 py-2 ${currentQuestionIndex === quizQuestions.length - 1 ? 'bg-purple-500 hover:bg-purple-700' : 'bg-blue-500'} text-white rounded-md hover:bg-blue-600 focus:outline-none`}
                     onClick={handleNextQuestion}
                     disabled={
                         !selectedAnswers.find(

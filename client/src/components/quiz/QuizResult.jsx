@@ -16,7 +16,7 @@ const QuizResult = () => {
     <section className="container mt-5">
       <h3 className="text-2xl font-bold mb-4">Your Quiz Result Summary</h3>
       <hr className="my-4" />
-      <h5 className="text-lg text-info">
+      <h5 className="text-lg font-bold text-purple-600">
         You answered {totalScores} out of {numQuestions} questions correctly.
       </h5>
       <p className="text-lg">
